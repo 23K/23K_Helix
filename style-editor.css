@@ -1,0 +1,47 @@
+/*======================================================================================
+		23K HELIX
+		WordPress Visual Editor Styler
+=======================================================================================*/
+
+ 
+/*======================================================================================
+		GLOBAL
+======================================================================================*/
+
+body { max-width: 620px; font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
+	
+	
+/*=================================================================
+		GLOBAL - Typography
+=================================================================*/
+
+h1, h2, h3, h4, h5, h6 { margin: 0 0 20px; 
+	font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; 
+	line-height: 1.1; letter-spacing: -0.6px; word-spacing: 2px;
+	color: #555; }
+
+h1 { color: #111; font-size: 52px; }
+
+h2 { font-size: 34px; }
+
+h3 { font-size: 26px; line-height: 28px; font-weight: bold; }
+
+h4 { font-size: 30px; font-weight: normal; }
+
+h5 { font-size: 21px; }
+
+h6 { font-size: 18px; }
+
+p { margin: 0 0 20px;
+	color: #363636; font-size: 15px; line-height: 22px; }
+
+
+body#tinymce ol,
+body#tinymce ul { padding: 0 30px 0 30px; margin-bottom: 20px; }
+
+body#tinymce ul li { padding-left: 5px; margin-bottom: 8px; 
+	list-style-type: square;
+	font-size: 13px; line-height: 18px; color: #333;  }
+	
+body#tinymce ol li { list-style-type: decimal; padding-left: 5px; margin-bottom: 8px; 
+	font-size: 13px; line-height: 18px; color: #333; }

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Helix Shortcodes</title>
+	<script type="text/javascript" src="/wp-content/themes/23K_Darwin/_js/jquery/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
+	<script type="text/javascript">
+		var helixDialog = {
+			local_ed : 'ed',
+			init : function(ed) {
+				helixDialog.local_ed = ed;
+				tinyMCEPopup.resizeToInnerSize();
+			},
+			insert : function inserthelixSection(ed) {
+				tinyMCEPopup.execCommand('mceRemoveNode', false, null);
+				
+				var leadoutTab = $('#leadout-dialog');
+				var featuredPostTab = $('#featured-post-dialog');
+				var galleryPreviewTab = $('#gallery-preview-dialog');
+				var mapTab = $('#map-dialog');
+				var dividersTab = $('#dividers-dialog');
+				
+				var output = '';
+				
+				// Leadout
+				if ( leadoutTab.hasClass('current') ) {
+					var theCTA = $('input[name=the-cta]').val();
+					var theLink = $('input[name=the-link]').val();
+					var theContent = $('textarea[name=the-content]').val();
+					
+					output += '[leadout cta="' + theCTA + '" link="' + theLink + '"]' + theContent + '[/leadout]<br />';
+				// Featured Post
+				} else if ( featuredPostTab.hasClass('current') ) {
+					var theID = $('#featured-post-dialog input[name=the-id]').val();
+					var isFullwidth = $('#featured-post-dialog input[name=is-fullwidth]').is(':checked') ? 'on' : 'off';
+					
+					output += '[featured_post id="' + theID + '"';
+					
+					if ( isFullwidth == 'on' ) {
+						output += ' fullwidth="true"';
+					}
+					
+					output += ']<br />';
+				// Gallery Preview
+				} else if ( galleryPreviewTab.hasClass('current') ) {
+					var theSlug = $('#gallery-preview-dialog input[name=the-slug]').val();
+					var theTitle = $('#gallery-preview-dialog input[name=the-title]').val();
+					
+					output += '[gallery_preview slug="' + theSlug + '"';
+					
+					if ( theTitle ) {
+						output += ' title="' + theTitle + '"';
+					}
+					
+					output += ']<br />';
+				// Map
+				} else if ( mapTab.hasClass('current') ) {
+					var theAddress = $('#map-dialog input[name=the-address]').val();
+					var theWidth = $('#map-dialog input[name=the-width]').val();
+					var theHeight = $('#map-dialog input[name=the-height]').val();
+					
+					output += '[google_map address="' + theAddress + '" width="' + theWidth + '" height="' + theHeight + '"]<br />';
+				// Divider
+				} else if ( dividersTab.hasClass('current') ) {
+					var theType = $('#dividers-dialog input[name=the-type]:checked').val();
+					
+					if ( theType == 'plain' ) {
+						output += '[divider]<br />';
+					} else if ( theType == 'post' ) {
+						output += '[postdivider]<br />';
+					} else if ( theType == 'top' ) {
+						output += '[divider_top]<br />';
+					}
+				}
+			
+			tinyMCEPopup.execCommand('mceReplaceContent', false, output);
+
+		tinyMCEPopup.close();
+		}
+	};
+	
+	tinyMCEPopup.onInit.add(helixDialog.init, helixDialog);
+
+	document.write('<base href="'+tinymce.baseURL+'" />');
+	
+	$(document).ready(function() {
+		$('a.tab').click(function() {
+			thisTab = 'div#' + $(this).attr('id') + '-dialog';
+			
+			$('div.dialog-tab').hide().removeClass('current');
+			$('a.tab').removeClass('current');
+			$(thisTab).show().addClass('current');
+			$(this).addClass('current');
+			
+			return false;
+		});
+	});
+</script>
+
+<style>
+	body { margin: 15px 8px 0; }
+	form { padding: 0 20px; text-align: left; }
+	label { width: 75px; float: left; }
+	input { width: 175px; }
+	input, textarea { background: #fafafa; }
+	input:focus, textarea:focus { background: #fdfdfd; }
+	input[type=checkbox], input[type=radio] { width: 20px; margin: 0; }
+	#helix-dialog table tr td { padding: 5px; }
+	a { text-decoration: none; font-weight: bold; }
+	a.tab { padding: 5px; border: 1px solid #555; border-bottom: none;
+		-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0; }
+	a.tab.current { color: #2b6fb6; background: #fff; }
+	p { font-size: 80%; font-style: italic; }
+	div.dialog-tab { display: none; margin-top: 4px; background: #fff; border: 1px solid #555;
+		-moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; border-radius: 0 4px 4px 4px; }
+	div.current { display: block; }
+	a.insert-btn { margin-left: 20px; padding: 5px; background: #fafafa; border: 1px solid #555;
+		-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+	a.insert-btn:hover { background: #fff; }
+	img.example { display: block; margin: 12px auto;
+		border: 1px solid #dfdfdf; }
+</style>
+<base target="_self" />
+</head>
+
+<body>
+
+<a href="#" class="tab current" id="leadout">Leadout</a>
+<a href="#" class="tab" id="featured-post">Featured Post</a>
+<a href="#" class="tab" id="gallery-preview">Gallery Preview</a>
+<a href="#" class="tab" id="map">Maps</a>
+<a href="#" class="tab" id="dividers">Dividers</a>
+
+<!-- LEADOUT -->
+<div class="dialog-tab current" id="leadout-dialog">
+
+<form action="/" method="get" accept-charset="utf-8">
+<br /><br />
+
+<label for="the-cta" class="image-align-none-label"><strong>CTA:</strong></label>
+<input type="text" id="the-cta" name="the-cta" /><br /><br />
+
+<label for="the-link" class="image-align-none-label"><strong>Link:</strong></label>
+<input type="text" id="the-link" name="the-link" /><br /><br />
+
+<label for="the-content" class="image-align-none-label"><strong>Content:</strong></label>
+<textarea id="the-content" name="the-content" cols="30" rows="6"></textarea><br /><br />
+
+</form>
+<div style="clear: both; margin-top: 20px;"></div>
+<a href="javascript:helixDialog.insert(helixDialog.local_ed)" class="insert-btn">Insert &rarr;</a>
+<div style="clear: both; margin-top: 30px;"></div>
+<img src="/wp-content/plugins/23K_Helix/_functions/_tinymce/_img/shortcode-leadout.jpg" alt="" class="example" />
+</div>
+
+
+<!-- FEATURED POST -->
+<div class="dialog-tab" id="featured-post-dialog">
+<form action="/" method="get" accept-charset="utf-8">
+<br /><br />
+
+<label for="the-id" class="image-align-none-label"><strong>Post ID:</strong></label>
+<input type="text" id="the-id" name="the-id" /><br /><br />
+
+<input type="checkbox" id="is-fullwidth" name="is-fullwidth" />
+<label for="is-fullwidth" class="image-align-none-label"><strong>Is this a fullwidth page?</strong></label><br /><br />
+
+</form>
+<div style="clear: both; margin-top: 40px;"></div>
+<a href="javascript:helixDialog.insert(helixDialog.local_ed)" class="insert-btn">Insert &rarr;</a>
+<div style="clear: both; margin-top: 30px;"></div>
+<img src="/wp-content/plugins/23K_Helix/_functions/_tinymce/_img/shortcode-featured-post.jpg" alt="" class="example" />
+</div>
+
+
+<!-- GALLERY PREVIEW -->
+<div class="dialog-tab" id="gallery-preview-dialog">
+<form action="/" method="get" accept-charset="utf-8">
+<br /><br />
+
+<label for="the-slug" class="image-align-none-label"><strong>Slug:</strong></label>
+<input type="text" id="the-slug" name="the-slug" />
+<p>Find your slug under Gallery Photos > Galleries</p><br />
+
+<label for="the-title" class="image-align-none-label"><strong>Title:</strong></label>
+<input type="text" id="the-title" name="the-title" />
+<p>Optional - default is "From our -Gallery Name- Gallery"</p><br />
+
+</form>
+<div style="clear: both; margin-top: 20px;"></div>
+<a href="javascript:helixDialog.insert(helixDialog.local_ed)" class="insert-btn">Insert &rarr;</a>
+<div style="clear: both; margin-top: 30px;"></div>
+<img src="/wp-content/plugins/23K_Helix/_functions/_tinymce/_img/shortcode-gallery-preview.jpg" alt="" class="example" />
+</div>
+
+
+<!-- MAP -->
+<div class="dialog-tab" id="map-dialog">
+<form action="/" method="get" accept-charset="utf-8">
+<br /><br />
+
+<label for="the-address" class="image-align-none-label"><strong>Address:</strong></label>
+<input type="text" id="the-address" name="the-address" /><br /><br />
+
+<label for="the-width" class="image-align-none-label"><strong>Width:</strong></label>
+<input type="text" id="the-width" name="the-width" value="425" /><br /><br />
+
+<label for="the-height" class="image-align-none-label"><strong>Height:</strong></label>
+<input type="text" id="the-height" name="the-height" value="350" /><br /><br />
+
+</form>
+<div style="clear: both; margin-top: 20px;"></div>
+<a href="javascript:helixDialog.insert(helixDialog.local_ed)" class="insert-btn">Insert &rarr;</a>
+<div style="clear: both; margin-top: 30px;"></div>
+<img src="/wp-content/plugins/23K_Helix/_functions/_tinymce/_img/shortcode-map.jpg" alt="" class="example" />
+</div>
+
+
+<!-- DIVIDERS -->
+<div class="dialog-tab" id="dividers-dialog">
+<form action="/" method="get" accept-charset="utf-8">
+<br /><br />
+
+<label for="the-type" class="image-align-none-label" style="float: none;"><strong>Choose divider type:</strong></label><br /><br />
+<input type="radio" name="the-type" value="plain" style="clear: both;" checked="checked" />Plain<br /><br />
+<div style="width: 100%; position: relative; display: block; clear: both; border-bottom: 1px solid #999; margin-bottom: 20px;"></div>
+
+<input type="radio" name="the-type" value="post" />Post divider<br /><br />
+<div style="width: 100%; position: relative; display: block; clear: both; height: 8px; margin-bottom: 20px; background: url('/wp-content/plugins/23K_Helix/_img/divider-blog.png') repeat-x 0 0;"></div>
+
+<input type="radio" name="the-type" value="top" />Divider with top link<br /><br />
+<div style="width: 95%; position: relative; display: block; clear: both; border-bottom: 1px solid #999; margin-bottom: 20px;"><a href="#" style="position: absolute; top: -3px; right: -25px; color: #555; font-size: 11px; font-family: Arial, Helvetica, sans-serif;" onclick="return false;"> top ^</a></div><br /><br />
+
+</form>
+<div style="clear: both; margin-top: 20px;"></div>
+<a href="javascript:helixDialog.insert(helixDialog.local_ed)" class="insert-btn">Insert &rarr;</a>
+<div style="clear: both; margin-top: 20px;"></div>
+</div>
+
+
+<div style="clear: both; margin-top: 20px;"></div>
+
+</body>
+</html>
