@@ -1083,13 +1083,20 @@ div.gallery-widget {
 		Recent & Popular Posts Widgets
 ======================================*/
 
-aside.sidebar div.recent-widget, aside.sidebar div.darwin-popular-widget { background: none; border: none;
+aside.sidebar div.recent-widget, aside.sidebar div.darwin-popular-widget, 
+aside.sidebar div.darwin-track-popular-widget { background: none; border: none;
 	.box-shadow(none);
 	
 	li { .clearfix(); }
 	a { padding: 15px 5px;
 		display: block;
 		.clearfix();
+	}
+}
+aside.sidebar div.darwin-track-popular-widget { 
+	ul li { border-bottom: 1px solid #ccc;
+		
+		&:hover { background: #f3f3f3; }
 	}
 }
 aside.sidebar div.recent-widget li { border-top: 1px solid #ccc;
