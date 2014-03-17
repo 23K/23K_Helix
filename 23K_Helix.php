@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: 23K Helix
-Version: 1.3.030
+Version: 1.3.031
 Description: Provides the Helix default templates, functions, widgets, CPTs, and shortcodes as a basis for new site builds.
 Author: 23K Studios
 Author URI: http://23K.com
@@ -57,22 +57,6 @@ if ( $opts['syndication_on'] ) {
 
 // Options
 require_once(HELIX_PATH . '/_darwin/helix-options.php');
-
-
-/*======================================================================================
-	Check for Plugin Updates
-======================================================================================*/
-
-function helix_activate_autoupdate() {
-	require_once ('_darwin/autoupdate.php');
-	
-	$helix_plugin_current_version = '1.3';
-	$helix_plugin_remote_path = 'http://api.23kdarwin.com/plugins/23K_Helix/update-23K_Helix.php';
-	$helix_plugin_slug = plugin_basename(__FILE__);
-	
-	new helix_wp_auto_update ($helix_plugin_current_version, $helix_plugin_remote_path, $helix_plugin_slug);
-}
-add_action('init', 'helix_activate_autoupdate');
 
 
 /*======================================================================================
