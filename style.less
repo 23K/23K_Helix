@@ -62,7 +62,14 @@ div.rotating-banner > div { position: absolute;
 	background: url('_img/divider-blog.png') repeat-x 0 0; border: none;
 }
 div.divider.top a { position: absolute; top: -3px; right: -25px;
-	color: #555; font-size: 11px;
+	color: #555; font-size: 11px; text-indent: -9999px;
+	background: #f4f4f4 !important;
+	
+	&:after { position: absolute; top: 0; right: -10px; width: 10px; height: 10px;
+		font-family: 'FontAwesome'; text-indent: 0;
+		content: '\f077';
+	}
+	&:hover { color: #aaa; }
 }
 
 .one_half { width: 48%; }
@@ -419,6 +426,10 @@ body.page #page.content div.from-gallery { position: relative; height: 330px; ma
 	div.sliding-top { position: absolute; top: 0; left: 0; width: 660px; height: 390px;
 		.box-shadow(~"inset 15px 0 18px -10px #000, inset -15px 0 18px -10px #000");
 	}
+}
+
+div.from-gallery a.btn { width: 150px;margin: 30px auto 0 auto;
+	display: block;
 }
 
 div.btn-gallery { position: absolute; bottom: 35px; left: 230px; width: 200px; height: 39px;
@@ -842,6 +853,14 @@ div#archive { padding-top: 20px;
 	p { font-size: 14px; line-height: 21px; }
 	div.leadout div.tab { margin-left: 0; }
 	div.span4:last-child { overflow: hidden; }
+	div#pagination-wrapper { position: relative; bottom: 0; margin-bottom: 30px;
+		
+		a, span { font-size: 15px; }
+		span:before { border: none; }
+		a:hover { color: #fff !important;
+			background: #aaa;
+		}
+	}
 }
 
 div#archive-location { padding-top: 20px;
@@ -905,7 +924,7 @@ ul#gallery-menu li { padding-left: 0;
 	}
 }
 
-ul#post-photo-gallery { padding: 40px 20px 0 20px;
+ul#post-photo-gallery { padding: 40px 20px 20px 20px;
 	
 	li { position: relative; height: 130px; margin: 10px 7px; padding: 0;
 		border: 10px solid #252525;
@@ -921,6 +940,15 @@ ul#post-photo-gallery { padding: 40px 20px 0 20px;
 }
 
 body.single-photo-gallery div#view-primary { background: none; }
+
+body.tax-gallery div#pagination-wrapper { bottom: 20px;
+	
+	a, span { font-size: 15px; }
+	span:before { border: none; }
+	a:hover { color: #fff !important;
+		background: #aaa;
+	}
+}
 
 
 /*======================================

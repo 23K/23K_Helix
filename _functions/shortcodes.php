@@ -81,7 +81,7 @@ function helix_gallery_preview($params, $content = null) {
 		$output .= '</div><a href="/gallery/' . $slug . '"><div class="sliding-top"></div></a>';
 	}
 	
-	$output .= '<div class="btn-gallery"><a href="/gallery/' . $slug . '/">Browse Gallery</a></div>
+	$output .= '<a href="/gallery/' . $slug . '/" class="btn btn-large">Browse Gallery</a>
 	</div>
 	<script> start_gallery_preview_slide(' . $speed . '); </script>';
 	
