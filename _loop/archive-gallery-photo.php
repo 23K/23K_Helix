@@ -8,7 +8,7 @@ global $dna_config, $dna;
 
 
 echo '<div class="menu-gallery-nav-container">
-	<ul id="gallery-menu" class="menu">';
+	<ul id="gallery-menu" class="menu clearfix">';
 		$galleries = get_terms('gallery', array(
 			'fields' => 'all',
 			'hide_empty' => 1,
