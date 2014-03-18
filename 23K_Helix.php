@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: 23K Helix
-Version: 1.3.031
+Version: 1.3.032
 Description: Provides the Helix default templates, functions, widgets, CPTs, and shortcodes as a basis for new site builds.
 Author: 23K Studios
 Author URI: http://23K.com
