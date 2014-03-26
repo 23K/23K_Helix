@@ -3,7 +3,7 @@
 /*
 Plugin Name: 23K Helix
 Version: 1.3.032
-Description: Provides the Helix default templates, functions, widgets, CPTs, and shortcodes as a basis for new site builds.
+Description: A robust website platform for use with the 23K Darwin adaptive framework.
 Author: 23K Studios
 Author URI: http://23K.com
 GitHub Plugin URI: https://github.com/23K/23K_Helix
