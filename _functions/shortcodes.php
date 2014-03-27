@@ -13,7 +13,7 @@ function helix_leadout($params, $content = null) {
 	), $params));
 	
 	$output = '<div class="leadout">
-		<div class="tab"><div class="pre-tab"></div><h4><a href="' . $link . '">' . $cta . '</a></h4></div>
+		<a href="' . $link . '"><div class="tab"><div class="pre-tab"></div><h4>' . $cta . '</h4></div></a>
 		<div class="description">
 		'. $content . '
 		</div>
