@@ -372,10 +372,10 @@ function helix_gravityform_gallery_taxonomy($form) {
 	endforeach;
 	
 	foreach ( $form['fields'] as &$field ) :
-		if ( $field['id'] == '22' || $field['id'] == '23' || $field['id'] == '24' 
-			|| $field['id'] == '25' || $field['id'] == '26' || $field['id'] == '35'
-			|| $field['id'] == '40' || $field['id'] == '45' || $field['id'] == '50'
-			|| $field['id'] == '55' ) {
+		if ( $field['id'] == '4' || $field['id'] == '8' || $field['id'] == '14' 
+			|| $field['id'] == '19' || $field['id'] == '24' || $field['id'] == '29'
+			|| $field['id'] == '34' || $field['id'] == '39' || $field['id'] == '44'
+			|| $field['id'] == '49' ) {
 				
 			$field['choices'] = $items;
 		}
@@ -383,7 +383,7 @@ function helix_gravityform_gallery_taxonomy($form) {
 	
 	return $form;
 }
-add_filter('gform_pre_render_4', 'helix_gravityform_gallery_taxonomy');
+add_filter('gform_pre_render_3', 'helix_gravityform_gallery_taxonomy');
 
 
 // create gallery photo posts
@@ -395,174 +395,174 @@ function helix_gravityform_publish_photos($form_meta) {
 	// photo 1
 	$args1 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_7'],
-		'post_content' => $_POST['input_8'],
+		'post_title' => $_POST['input_2'],
+		'post_content' => $_POST['input_3'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid1 = wp_insert_post($args1);
 	
-	if ( $_FILES['input_6'] && $pid1 > 0 ) {
-		$media_id1 = media_handle_upload('input_6', $pid1);
+	if ( $_FILES['input_1'] && $pid1 > 0 ) {
+		$media_id1 = media_handle_upload('input_1', $pid1);
 		set_post_thumbnail($pid1, $media_id1);
 	}
 	
-	wp_set_object_terms($pid1, array('showcase', $_POST['input_22']), 'gallery');
+	wp_set_object_terms($pid1, array('showcase', $_POST['input_4']), 'gallery');
 	
 	// photo 2
 	$args2 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_10'],
-		'post_content' => $_POST['input_11'],
+		'post_title' => $_POST['input_6'],
+		'post_content' => $_POST['input_7'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid2 = wp_insert_post($args2);
 	
-	if ( $_FILES['input_9'] && $pid2 > 0 ) {
-		$media_id2 = media_handle_upload('input_9', $pid2);
+	if ( $_FILES['input_5'] && $pid2 > 0 ) {
+		$media_id2 = media_handle_upload('input_5', $pid2);
 		set_post_thumbnail($pid2, $media_id2);
 	}
 	
-	wp_set_object_terms($pid2, array('showcase', $_POST['input_23']), 'gallery');
+	wp_set_object_terms($pid2, array('showcase', $_POST['input_8']), 'gallery');
 	
 	// photo 3
 	$args3 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_13'],
-		'post_content' => $_POST['input_14'],
+		'post_title' => $_POST['input_10'],
+		'post_content' => $_POST['input_13'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid3 = wp_insert_post($args3);
 	
-	if ( $_FILES['input_12'] && $pid3 > 0 ) {
-		$media_id3 = media_handle_upload('input_12', $pid3);
+	if ( $_FILES['input_9'] && $pid3 > 0 ) {
+		$media_id3 = media_handle_upload('input_9', $pid3);
 		set_post_thumbnail($pid3, $media_id3);
 	}
 	
-	wp_set_object_terms($pid3, array('showcase', $_POST['input_24']), 'gallery');
+	wp_set_object_terms($pid3, array('showcase', $_POST['input_14']), 'gallery');
 	
 	// photo 4
 	$args4 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_16'],
-		'post_content' => $_POST['input_17'],
+		'post_title' => $_POST['input_17'],
+		'post_content' => $_POST['input_18'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid4 = wp_insert_post($args4);
 	
-	if ( $_FILES['input_15'] && $pid4 > 0 ) {
-		$media_id4 = media_handle_upload('input_15', $pid4);
+	if ( $_FILES['input_16'] && $pid4 > 0 ) {
+		$media_id4 = media_handle_upload('input_16', $pid4);
 		set_post_thumbnail($pid4, $media_id4);
 	}
 	
-	wp_set_object_terms($pid4, array('showcase', $_POST['input_25']), 'gallery');
+	wp_set_object_terms($pid4, array('showcase', $_POST['input_19']), 'gallery');
 	
 	// photo 5
 	$args5 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_19'],
-		'post_content' => $_POST['input_20'],
+		'post_title' => $_POST['input_22'],
+		'post_content' => $_POST['input_23'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid5 = wp_insert_post($args5);
 	
-	if ( $_FILES['input_18'] && $pid5 > 0 ) {
-		$media_id5 = media_handle_upload('input_18', $pid5);
+	if ( $_FILES['input_21'] && $pid5 > 0 ) {
+		$media_id5 = media_handle_upload('input_21', $pid5);
 		set_post_thumbnail($pid5, $media_id5);
 	}
 	
-	wp_set_object_terms($pid5, array('showcase', $_POST['input_27']), 'gallery');
+	wp_set_object_terms($pid5, array('showcase', $_POST['input_24']), 'gallery');
 	
 	// photo 6
 	$args6 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_33'],
-		'post_content' => $_POST['input_34'],
+		'post_title' => $_POST['input_27'],
+		'post_content' => $_POST['input_28'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid6 = wp_insert_post($args6);
 	
-	if ( $_FILES['input_32'] && $pid6 > 0 ) {
-		$media_id6 = media_handle_upload('input_32', $pid6);
+	if ( $_FILES['input_26'] && $pid6 > 0 ) {
+		$media_id6 = media_handle_upload('input_26', $pid6);
 		set_post_thumbnail($pid6, $media_id6);
 	}
 	
-	wp_set_object_terms($pid6, array('showcase', $_POST['input_35']), 'gallery');
+	wp_set_object_terms($pid6, array('showcase', $_POST['input_29']), 'gallery');
 	
 	// photo 7
 	$args7 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_38'],
-		'post_content' => $_POST['input_39'],
+		'post_title' => $_POST['input_32'],
+		'post_content' => $_POST['input_33'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid7 = wp_insert_post($args7);
 	
-	if ( $_FILES['input_37'] && $pid7 > 0 ) {
-		$media_id7 = media_handle_upload('input_37', $pid7);
+	if ( $_FILES['input_31'] && $pid7 > 0 ) {
+		$media_id7 = media_handle_upload('input_31', $pid7);
 		set_post_thumbnail($pid7, $media_id7);
 	}
 	
-	wp_set_object_terms($pid7, array('showcase', $_POST['input_40']), 'gallery');
+	wp_set_object_terms($pid7, array('showcase', $_POST['input_34']), 'gallery');
 	
 	// photo 8
 	$args8 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_43'],
-		'post_content' => $_POST['input_44'],
+		'post_title' => $_POST['input_37'],
+		'post_content' => $_POST['input_38'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid8 = wp_insert_post($args8);
 	
-	if ( $_FILES['input_42'] && $pid8 > 0 ) {
-		$media_id8 = media_handle_upload('input_42', $pid8);
+	if ( $_FILES['input_36'] && $pid8 > 0 ) {
+		$media_id8 = media_handle_upload('input_36', $pid8);
 		set_post_thumbnail($pid8, $media_id8);
 	}
 	
-	wp_set_object_terms($pid8, array('showcase', $_POST['input_45']), 'gallery');
+	wp_set_object_terms($pid8, array('showcase', $_POST['input_39']), 'gallery');
 	
 	// photo 9
 	$args9 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_48'],
-		'post_content' => $_POST['input_49'],
+		'post_title' => $_POST['input_42'],
+		'post_content' => $_POST['input_43'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid9 = wp_insert_post($args9);
 	
-	if ( $_FILES['input_47'] && $pid9 > 0 ) {
-		$media_id9 = media_handle_upload('input_47', $pid9);
+	if ( $_FILES['input_41'] && $pid9 > 0 ) {
+		$media_id9 = media_handle_upload('input_41', $pid9);
 		set_post_thumbnail($pid9, $media_id9);
 	}
 	
-	wp_set_object_terms($pid9, array('showcase', $_POST['input_50']), 'gallery');
+	wp_set_object_terms($pid9, array('showcase', $_POST['input_44']), 'gallery');
 	
 	// photo 10
 	$args10 = array(
 		'post_author' => 1,
-		'post_title' => $_POST['input_53'],
-		'post_content' => $_POST['input_54'],
+		'post_title' => $_POST['input_47'],
+		'post_content' => $_POST['input_48'],
 		'post_type' => 'photo-gallery',
 		'post_status' => 'publish'
 	);
 	$pid10 = wp_insert_post($args10);
 	
-	if ( $_FILES['input_52'] && $pid10 > 0 ) {
-		$media_id10 = media_handle_upload('input_52', $pid10);
+	if ( $_FILES['input_46'] && $pid10 > 0 ) {
+		$media_id10 = media_handle_upload('input_46', $pid10);
 		set_post_thumbnail($pid10, $media_id10);
 	}
 	
-	wp_set_object_terms($pid10, array('showcase', $_POST['input_55']), 'gallery');
+	wp_set_object_terms($pid10, array('showcase', $_POST['input_49']), 'gallery');
 }
-add_filter('gform_pre_submission_4', 'helix_gravityform_publish_photos');
+add_filter('gform_pre_submission_3', 'helix_gravityform_publish_photos');
 
 
 /*======================================================================================
