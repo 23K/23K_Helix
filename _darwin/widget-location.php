@@ -126,7 +126,7 @@ class Location_Widget extends WP_Widget {
 		$instance['loc'] = strip_tags( $new_instance['loc'] );
 		$instance['loc-img'] = $new_instance['loc-img'];
 		$instance['loc-add'] = $new_instance['loc-add'];
-		$instnace['loc-directions'] = $new_instance['loc-directions'];
+		$instance['loc-directions'] = $new_instance['loc-directions'];
 		$instance['loc-phone'] = $new_instance['loc-phone'];
 		$instance['loc-link'] = $new_instance['loc-link'];
 		return $instance;
