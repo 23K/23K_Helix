@@ -360,7 +360,7 @@ if ( ! is_admin() ) { add_filter('pre_get_posts', 'helix_set_query_vars', 10, 1)
 
 // Set gallery taxonomy terms in drop down fields
 function helix_gravityform_gallery_taxonomy($form) {
-	$galleries = get_terms('gallery');
+	$galleries = get_terms('gallery', array( 'hide_empty' => false ));
 	
 	$items = array();
 	$items[] = array( 'text' => '', 'value' => '' );
