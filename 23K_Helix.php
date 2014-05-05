@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: 23K Helix
-Version: 1.3.036
+Version: 1.3.037
 Description: A robust website platform for use with the 23K Darwin adaptive framework.
 Author: 23K Studios
 Author URI: http://23K.com
