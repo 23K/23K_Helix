@@ -100,7 +100,7 @@ dxlayout_wrapper('main', $dna['bootstrap']);
 
 	helixpublish_override($dna['archive'], $dna['archive-content-pos']); 
 	
-	dxpublish_aside($dna['sidebar'], $dna['sidebar-pos']);
+	dxpublish_aside($dna['archive-sidebar'], $dna['archive-sidebar-pos']);
 
 dxlayout_wrapper_end('main');
 
