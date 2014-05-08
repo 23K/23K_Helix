@@ -13,10 +13,18 @@ global $dna_config, $dna;
 
 // Repeat the Preview Loop
 if (have_posts()) : while (have_posts()) : the_post();
-	echo '<div class="testimonial-box">
-	<p class="testimonial">' . get_the_content() . '</p>
-	<p class="testimonial-author">&mdash; ' . get_the_title() . '</p>
-</div>';
+	$rna = array(
+		'author' => get_post_meta($post->ID, 'rna_testimonial_author', true),
+		'title' => get_post_meta($post->ID, 'rna_testimonial_title', true),
+		'location' => get_post_meta($post->ID, 'rna_testimonial_location', true),
+	);
+	
+	echo '<div class="testimonial-box">';
+	the_content();
+	if ( $rna['author'] ) echo '<p class="testimonial-author">&mdash; ' . get_the_title() . '</p>';
+	if ( $rna['title'] ) echo '<p class="testimonial-author-title">' . $rna['title'] . '</p>';
+	if ( $rna['location'] ) echo '<p class="testimonial-author-location">' . $rna['location'] . '</p>';
+echo '</div>';
 endwhile; else:endif;
 
 
