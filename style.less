@@ -778,19 +778,22 @@ div#fancybox-title-inside { padding: 15px 40px 5px 40px; }
 div.fancybox-skin { background: transparent;
 	.box-shadow(~"none !important");
 }
-.fancybox-prev span, .fancybox-next span, .fancybox-close { width: 42px !important; height: 75px !important;
+.fancybox-prev span, .fancybox-next span, .fancybox-close { position: fixed !important; width: 42px !important; height: 75px !important;
 	background: url('_img/fancybox-arrows.png') no-repeat 0 0 !important;
 	visibility: visible !important; outline: none !important;
 	
 	&:hover { background-position: 0 -75px !important; }
 	&:active { background-position: 0 -150px !important; }
 }
-.fancybox-next span { background-position: -42px 0 !important;
+.fancybox-prev span { left: 5% !important; }
+.fancybox-next span { right: 5% !important;
+	background-position: -42px 0 !important;
 	
 	&:hover { background-position: -42px -75px !important; }
 	&:active { background-position: -42px -150px !important; }
 }
-a.fancybox-close { background-position: -84px 0 !important;
+a.fancybox-close { top: 0 !important; right: 5px !important;
+	background-position: -84px 0 !important;
 	
 	&:hover { background-position: -84px -75px !important; }
 	&:active { background-position: -84px -150px !important; }
