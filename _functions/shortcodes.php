@@ -27,7 +27,11 @@ add_shortcode('leadout','helix_leadout');
 
 // Post divider
 function helix_postdivider($params, $content = null) {
-	return '<div class="divider post"></div>';
+	extract(shortcode_atts(array(
+		'class' => ''
+	), $params));
+	
+	return '<div class="divider post' . ($class ? ' ' . $class : '') . '"></div>';
 }
 add_shortcode('postdivider','helix_postdivider');
 
