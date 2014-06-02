@@ -36,6 +36,17 @@ function helix_postdivider($params, $content = null) {
 add_shortcode('postdivider','helix_postdivider');
 
 
+// Content box
+function helix_content_box($params, $content = null) {
+	extract(shortcode_atts(array(
+		'class' => ''
+	), $params));
+	
+	return '<div class="content-box' . ($class ? ' ' . $class : '') . '">' . do_shortcode($content) . '</div>';
+}
+add_shortcode('content_box', 'helix_content_box');
+
+
 // Show preview of 1 gallery
 function helix_gallery_preview($params, $content = null) {
 	extract(shortcode_atts(array(
