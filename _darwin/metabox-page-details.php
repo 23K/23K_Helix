@@ -20,12 +20,12 @@
 $prefix = 'rna_page_details_'; 
 $dxwp_metabox_fields_page_details = array(
 	array(
-		'id' 		=> 'Add Billboard Image',
+		'id' 		=> 'Add Masthead Image',
 		'type'	=> 'subhead'
 	),
 	array(
-		'label'	=> 'Billboard Image',
-		'desc'	=> 'Upload an image to be used as this page\'s billboard.',
+		'label'	=> 'Masthead Image',
+		'desc'	=> 'Upload an image to be used at the top of this page.',
 		'id'	=> $prefix . 'billboard',
 		'type'	=> 'image'
 	),
