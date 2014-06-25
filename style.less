@@ -748,7 +748,7 @@ div.related-post { min-height: 85px;
 		Single - Photo Gallery
 ======================================*/
 
-body.single-photo-gallery, body.single-photo-gallery div#viewport { background: transparent; }
+body.single-photo-gallery, body.single-photo-gallery div#viewport { background: transparent; overflow: hidden; }
 div#gallery-single div.container { margin-left: 10px;
 	div.column-container { margin: 5px 10px 10px 10px; }
 		
@@ -762,6 +762,12 @@ div#gallery-single div.container { margin-left: 10px;
 			}
 			&.tags { font-size: 12px; line-height: 16px; }
 	 }
+}
+div#gallery-single-photo div.container { margin-left: 10px;
+	
+	img { margin: 0 auto;
+		display: block;
+	}
 }
 
 div#gallery-img-wrapper { height: 455px;
