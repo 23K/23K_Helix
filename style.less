@@ -55,6 +55,19 @@ div.post-image { width: 100px; height: 100px;
 div.rotating-banner > div { position: absolute; top: 0; left: 0;
 	display: none;
 }
+div#banner-prev, div#banner-next { position: absolute; top: 170px; left: -70px; width: 45px; height: 75px;
+	background: url('_img/fancybox-arrows.png') no-repeat 0 0;
+	cursor: pointer; z-index: 2;
+	
+	&:hover, &:focus { background-position: 0 -75px; }
+	&:active { background-position: 0 -150px; }
+}
+div#banner-next { left: auto; right: -75px;
+	background-position: -45px 0;
+	
+	&:hover, &:focus { background-position: -45px -75px; }
+	&:active { background-position: -45px -150px; }
+}
 
 
 .divider, .divider15, .divider30 { border-color: #999 !important; }
