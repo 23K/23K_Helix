@@ -42,8 +42,16 @@ dxlayout_wrapper('main', $dna['bootstrap']);
 		dxclear('', '30');
 		
 		if (have_posts()) : while (have_posts()) : the_post(); if ($post->ID == $frontpage) continue;
-			dxlink_the_title('', 'h3');
-			the_excerpt();
+			echo dxlink_get_the_title('', 'h4');
+			
+			if ( $post->post_type == 'photo-gallery' ) {
+				dxlink_the_post_thumbnail('div', 'clearfix', 'from-gallery-page');
+				
+				echo '<a href="' . get_permalink($post->ID) . '" title="' . get_the_title($post->ID) . '"><strong>View gallery photo &raquo;</strong></a>';
+			} else {
+				the_excerpt();
+			}
+			
 			echo '<div class="post divider"></div>';
 		endwhile; else: endif;
 	
