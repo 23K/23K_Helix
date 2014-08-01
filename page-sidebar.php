@@ -39,13 +39,21 @@ $posttype = get_post_type();
 get_header();
 	helixpublish_header($dna['masthead'], '', 'false');
 
-
+// old helix billboard
 if ( ! $dna_config['helix_release'] || $dna_config['helix_release'] <= 1.3 ) {
-	// Billboard
 	if ( $rna_page_details_billboard ) {
 		echo '<div id="page-billboard">
 			<img src="' . $bb . '" />
 		</div>';
+	} else {
+		echo '<style> div#main.wrapper { margin-top: 20px; } </style>';
+	}
+// helix 1.4+ billboard
+} else {
+	if ( $rna_page_details_billboard ) {
+		dxlayout_wrapper('page-billboard', $dna['bootstrap']);
+			echo '<img src="' . $bb . '" />';
+		dxlayout_wrapper_end('page-billboard');
 	} else {
 		echo '<style> div#main.wrapper { margin-top: 20px; } </style>';
 	}
@@ -56,22 +64,7 @@ if ( ! $dna_config['helix_release'] || $dna_config['helix_release'] <= 1.3 ) {
 		Page Content Loop
 ======================================*/
 
-if ( $dna_config['helix_release'] >= 1.4 ) {
-	dxlayout_wrapper('main', $dna['bootstrap'], 'enclosed');
-} else {
-	dxlayout_wrapper('main', $dna['bootstrap']);
-}
-	
-	if ( $dna_config['helix_release'] >= 1.4 ) {
-		// Billboard
-		if ( $rna_page_details_billboard ) {
-			echo '<div id="page-billboard">
-				<img src="' . $bb . '" />
-			</div>';
-		} else {
-			echo '<style> div#main.wrapper.enclosed { margin-top: 20px; } </style>';
-		}
-	}
+dxlayout_wrapper('main', $dna['bootstrap']);
 	
 	// Title Area
 	echo '<div id="page-title">';

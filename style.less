@@ -42,7 +42,6 @@ div { position: relative;
 
 div#main.wrapper { margin-top: -10px;
 	
-	&.enclosed { margin-top: 10px; }
 	div.container { min-height: 750px;
 		background: #f4f4f4;
 	}
@@ -301,6 +300,10 @@ div#page-billboard { width: 960px; height: 260px; margin: 0 auto; margin-top: 25
 	&:after { position: absolute; bottom: -26px; left: 40px; width: 960px; height: 38px;
 		background: url('_img/billboard-shadow.png') no-repeat top center;
 		content: ''; z-index: 10;
+	}
+	&.wrapper { width: 100%; margin-top: 0;
+		
+		&:before, &:after { height: 0; }
 	}
 }
 
