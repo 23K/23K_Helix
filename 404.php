@@ -57,13 +57,15 @@ dxlayout_wrapper('main', $dna['bootstrap']);
 							echo '<li><a href="/gallery/' . $term->slug . '/">' . $term->name . '</a></li>';
 						}
 					echo '</ul>';
-			}
+				}
 				
-				echo '<h2>Blog</h2>
-				<ul>';
-					$args3 = array( 'title_li' => '' );
-					wp_list_categories($args3);
-				echo '</ul>';
+				if ( ! get_dna('no_posts') || get_dna('no_posts') != 1 ) {
+					echo '<h2>Blog</h2>
+					<ul>';
+						$args3 = array( 'title_li' => '' );
+						wp_list_categories($args3);
+					echo '</ul>';
+				}
 				
 				$locposts = get_posts('post_type=locations');
 				if ( $locposts ) {
@@ -84,7 +86,7 @@ dxlayout_wrapper_end('main');
 		Footer
 ======================================*/
 
-	helixpublish_footer($dna['footer']);
+	helixpublish_footer($dna['footer'], '', 'false');
 get_footer(); 
 
 

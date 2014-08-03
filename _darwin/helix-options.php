@@ -108,6 +108,13 @@ function optionsframework_inject_options() {
 		"type" => "heading",
 		"after" => "hide_teaser" );
 	
+	$extra_options[] = array( "name" => "Not Using Posts",
+		"id" => "no_posts",
+		"desc" => "Check this box if your site is not using posts",
+		"type" => "checkbox",
+		"after" => "heading_posts"
+	);
+	
 	$extra_options[] = array( "name" => "Page Title",
 		"id" => "page_title",
 		"std" => "",
@@ -116,7 +123,7 @@ function optionsframework_inject_options() {
 		"options" => array(
 			'title' => 'Post title',
 			'category' => 'Category name and description'),
-		"after" => "heading_posts" );
+		"after" => "no_posts" );
 	
 	$extra_options[] = array( "name" => "Show/Hide",
 		"id" => "info_posts_show",

@@ -39,6 +39,10 @@ $posttype = get_post_type();
 get_header();
 	helixpublish_header($dna['masthead'], '', 'false');
 
+/*======================================
+		Page Billboard
+======================================*/
+
 // old helix billboard
 if ( ! $dna_config['helix_release'] || $dna_config['helix_release'] <= 1.3 ) {
 	if ( $rna_page_details_billboard ) {

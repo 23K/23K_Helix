@@ -7,6 +7,12 @@ global $dna, $post;
 $rna_page_details_billboard = get_post_meta( $post->ID, 'rna_page_details_billboard', true );
 $billboard = wp_get_attachment_image_src( $rna_page_details_billboard, 'page-billboard' );
 $billboard_long = wp_get_attachment_image_src( $rna_page_details_billboard, 'page-billboard-long' );
+if ( is_numeric($rna_page_details_billboard) ) {
+	$billboard = wp_get_attachment_image_src( $rna_page_details_billboard, 'page-billboard' );
+	$bb = $billboard[0];
+} else {
+	$bb = $rna_page_details_billboard;
+}
 
 $rna_page_details_title = get_post_meta( $post->ID, 'rna_page_details_title', true );
 if ($rna_page_details_title) {
@@ -24,12 +30,25 @@ get_header();
 	helixpublish_header($dna['masthead'], '', 'false');
 
 
+/*======================================
+		Page Billboard
+======================================*/
+
+// old helix billboard
 if ( ! $dna_config['helix_release'] || $dna_config['helix_release'] <= 1.3 ) {
-	// Billboard
 	if ( $rna_page_details_billboard ) {
 		echo '<div id="page-billboard">
-			<img src="' . $billboard[0] . '" />
+			<img src="' . $bb . '" />
 		</div>';
+	} else {
+		echo '<style> div#main.wrapper { margin-top: 20px; } </style>';
+	}
+// helix 1.4+ billboard
+} else {
+	if ( $rna_page_details_billboard ) {
+		dxlayout_wrapper('page-billboard', $dna['bootstrap']);
+			echo '<img src="' . $bb . '" />';
+		dxlayout_wrapper_end('page-billboard');
 	} else {
 		echo '<style> div#main.wrapper { margin-top: 20px; } </style>';
 	}
@@ -40,23 +59,8 @@ if ( ! $dna_config['helix_release'] || $dna_config['helix_release'] <= 1.3 ) {
 		Page Content Loop
 ======================================*/
 
-if ( $dna_config['helix_release'] >= 1.4 ) {
-	dxlayout_wrapper('main', $dna['bootstrap'], 'enclosed');
-} else {
-	dxlayout_wrapper('main', $dna['bootstrap']);
-}
+dxlayout_wrapper('main', $dna['bootstrap']);
 
-	if ( $dna_config['helix_release'] >= 1.4 ) {
-		// Billboard
-		if ( $rna_page_details_billboard ) {
-			echo '<div id="page-billboard">
-				<img src="' . $billboard[0] . '" />
-			</div>';
-		} else {
-			echo '<style> div#main.wrapper.enclosed { margin-top: 20px; } </style>';
-		}
-	}
-	
 	// Title Area
 	echo '<div id="page-title">
 		<div class="content">';
@@ -103,13 +107,15 @@ if ( $dna_config['helix_release'] >= 1.4 ) {
 						echo '<li><a href="/gallery/' . $term->slug . '/">' . $term->name . '</a></li>';
 					}
 				echo '</ul>';
-		}
+			}
 			
-			echo '<h2>Blog</h2>
-			<ul>';
-				$args3 = array( 'title_li' => '' );
-				wp_list_categories($args3);
-			echo '</ul>';
+			if ( ! get_dna('no_posts') || get_dna('no_posts') != 1 ) {
+				echo '<h2>Blog</h2>
+				<ul>';
+					$args3 = array( 'title_li' => '' );
+					wp_list_categories($args3);
+				echo '</ul>';
+			}
 			
 			$locposts = get_posts('post_type=locations');
 			if ( $locposts ) {

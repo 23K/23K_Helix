@@ -66,9 +66,9 @@ function share_hover() {
 
 function gallery_hover() {
 	$('ul#post-photo-gallery li').hover(function() {
-		$(this).find('div.gallery-hover').show();
+		$(this).find('div.gallery-hover').fadeIn();
 	}, function() {
-		$(this).find('div.gallery-hover').hide();
+		$(this).find('div.gallery-hover').fadeOut();
 	});
 }
 
