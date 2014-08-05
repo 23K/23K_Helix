@@ -159,7 +159,7 @@ function dxp_helix_setup_less() {
 	echo '<link rel="stylesheet/less" href="' . HELIX_URI . 'style.less">
 	';
 }
-add_action('dxhook_header_init', 'dxp_helix_setup_less');
+add_action('dxhook_header_tags', 'dxp_helix_setup_less');
 
 
 function dxp_helix_setup_js() {
