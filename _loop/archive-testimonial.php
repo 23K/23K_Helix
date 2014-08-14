@@ -21,7 +21,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	
 	echo '<div class="testimonial-box">';
 	the_content();
-	if ( $rna['author'] ) echo '<p class="testimonial-author">&mdash; ' . get_the_title() . '</p>';
+	if ( $rna['author'] ) echo '<p class="testimonial-author">&mdash; ' . $rna_author . '</p>';
 	if ( $rna['title'] ) echo '<p class="testimonial-author-title">' . $rna['title'] . '</p>';
 	if ( $rna['location'] ) echo '<p class="testimonial-author-location">' . $rna['location'] . '</p>';
 echo '</div>';
