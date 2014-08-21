@@ -22,10 +22,10 @@ WHERE wp_posts.post_type = 'post' AND date.meta_value IS NOT NULL AND alt_conten
 ORDER BY ID");
 #$main_query = new WP_Query(array('post__not_in' => $exclude, 'post_type' => 'post'));*/
 
-global $wp_query;
+/*global $wp_query;
 $limit = get_option('posts_per_page');
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-query_posts(array('posts_per_page'=>$limit, 'paged'=>$paged));
+query_posts(array('posts_per_page'=>$limit, 'paged'=>$paged));*/
 
 
 /*======================================
