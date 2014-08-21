@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: 23K Helix
-Version: 1.4.052
+Version: 1.4.053
 Description: A robust website platform for use with the 23K Darwin adaptive framework.
 Author: 23K Studios
 Author URI: http://23K.com
@@ -31,7 +31,7 @@ require_once(HELIX_PATH . '/_darwin/cpt-locations.php');
 
 // Metaboxes
 require_once(HELIX_PATH . '/_darwin/metabox-page-details.php');
-require_once(HELIX_PATH . '/_darwin/metabox-post-expiration.php');
+#require_once(HELIX_PATH . '/_darwin/metabox-post-expiration.php');
 
 
 // Widgets
@@ -46,7 +46,7 @@ require_once(HELIX_PATH . '/_darwin/widget-member.php');
 require_once(HELIX_PATH . '/_functions/shortcodes.php');
 require_once(HELIX_PATH . '/_functions/publish.php');
 require_once(HELIX_PATH . '/_functions/tinymce.php');
-require_once(HELIX_PATH . '/_functions/expiration.php');
+#require_once(HELIX_PATH . '/_functions/expiration.php');
 
 $opts =  get_option('darwin_dna');
 if ( $opts['syndication_on'] ) {
@@ -100,7 +100,7 @@ function dxp_helix_setup_pagetemplates() {
 	}
 	
 	// frontpage
-	else if (is_home() ) {
+	else if ( is_home() ) {
 		if ( ! file_exists(HELIX_THEME . '/index.php') ) {
 			include (HELIX_PATH . '/index.php');
 			die();

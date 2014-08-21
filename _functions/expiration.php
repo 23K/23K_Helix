@@ -19,10 +19,10 @@ function helix_expiration_posts_request($sql, $query) {
 		AND post_type = "post" AND post_status = "publish"
 		ORDER BY ID DESC';
 	}
-		
+	
 	return $sql;
 }
-add_filter('posts_request', 'helix_expiration_posts_request', 10, 2);
+#add_filter('posts_request', 'helix_expiration_posts_request', 10, 2);
 
 
 ?>
