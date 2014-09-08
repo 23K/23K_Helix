@@ -75,6 +75,14 @@ function dxp_helix_setup_pagetemplates() {
 		}
 	}
 	
+	// attachment
+	else if ( is_attachment() ) {
+		if ( ! file_exists(HELIX_THEME . '/attachment.php') ) {
+			include(DARWIN_PATH . '/attachment.php');
+			die();
+		}
+	}
+	
 	// page with default or sidebar template
 	else if ( is_page() && ( ! is_page_template() || is_page_template('page-sidebar.php')) ) {
 		if ( ! file_exists(HELIX_THEME . '/page-sidebar.php') ) {
