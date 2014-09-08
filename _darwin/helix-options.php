@@ -357,7 +357,7 @@ function optionsframework_inject_options() {
 	/*======================================================================================
 		SYNDICATION
 	======================================================================================*/
-	
+	/*
 	$extra_options[] = array( "name" => "Syndication",
 		"id" => "heading_syndication",
 		"type" => "heading",
@@ -400,7 +400,7 @@ function optionsframework_inject_options() {
 		"type" => "text",
 		"desc" => "Your author name in Campaign Headquarters, to bring in campaign landing pages.",
 		"after" => "source_author" );
-	
+	*/
 	
 	return $extra_options;
 }

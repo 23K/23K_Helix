@@ -50,8 +50,8 @@ require_once(HELIX_PATH . '/_functions/tinymce.php');
 
 $opts =  get_option('darwin_dna');
 if ( $opts['syndication_on'] ) {
-	require_once(HELIX_PATH . '/_functions/campaign-hq.php');
-	require_once(HELIX_PATH . '/_functions/syndication.php');
+	#require_once(HELIX_PATH . '/_functions/campaign-hq.php');
+	#require_once(HELIX_PATH . '/_functions/syndication.php');
 }
 
 
@@ -71,6 +71,14 @@ function dxp_helix_setup_pagetemplates() {
 	if ( is_page('sitemap') ) {
 		if ( ! file_exists(HELIX_THEME . '/page-sitemap.php') ) {
 			include (HELIX_PATH . '/page-sitemap.php');
+			die();
+		}
+	}
+	
+	// attachment
+	else if ( is_attachment() ) {
+		if ( ! file_exists(HELIX_THEME . '/attachment.php') ) {
+			include(DARWIN_PATH . '/attachment.php');
 			die();
 		}
 	}

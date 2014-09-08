@@ -80,6 +80,8 @@ dxlayout_wrapper('main', $dna['bootstrap']);
 					post_type_archive_title();
 				} else if ( is_date() ) {
 					echo get_the_time('F');
+				} else if ( is_tag() ) {
+					echo 'Articles tagged: ' . single_cat_title('', false);
 				} else {
 					echo single_cat_title('', false);
 				}

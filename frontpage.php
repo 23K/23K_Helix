@@ -20,6 +20,8 @@ $frontpage_teaser = get_post_meta( get_dna('frontpage_content'), 'rna_page_detai
 get_header(); 
 	helixpublish_header($dna['masthead'], '', 'false');
 	
+	dxlayout_trapdoor_exit('', '', 'window');
+	
 
 /*======================================
 		Frontpage Content
