@@ -50,8 +50,8 @@ require_once(HELIX_PATH . '/_functions/tinymce.php');
 
 $opts =  get_option('darwin_dna');
 if ( $opts['syndication_on'] ) {
-	require_once(HELIX_PATH . '/_functions/campaign-hq.php');
-	require_once(HELIX_PATH . '/_functions/syndication.php');
+	#require_once(HELIX_PATH . '/_functions/campaign-hq.php');
+	#require_once(HELIX_PATH . '/_functions/syndication.php');
 }
 
 
