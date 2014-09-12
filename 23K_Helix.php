@@ -348,7 +348,11 @@ function helix_set_query_vars($query) {
 		}
 	} else {
 		if ( $query->is_tax('gallery') ) {
-			$query->query_vars['posts_per_page'] = 16;
+			if ( get_dna('number_gallery') ) {
+				$query->query_vars['posts_per_page'] = get_dna('number_gallery');
+			} else {
+				$query->query_vars['posts_per_page'] = 16;
+			}
 		}
 		
 		if ( $query->query_vars['post_type'] == 'locations' ) {

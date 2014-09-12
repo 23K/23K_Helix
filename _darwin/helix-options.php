@@ -331,6 +331,12 @@ function optionsframework_inject_options() {
 			'full-info' => 'Show the photo post with full description and gallery info'),
 		"after" => "heading_gallery" );
 	
+	$extra_options[] = array( "title" => "Photos Per Page",
+		"id" => "number_gallery",
+		"type" => "text",
+		"desc" => "Number of photos to show per gallery page - default is 16",
+		"after" => "gallery_single" );
+	
 	$extra_options[] = array( "title" => "Locations Layout",
 		"id" => "locations_thumb",
 		"std" => "",
@@ -339,7 +345,7 @@ function optionsframework_inject_options() {
 			'half' => 'Show half-width photo beside location info',
 			'full' => 'Show fullsize photo with location info beneath'
 		),
-		"after" => "gallery_single" );
+		"after" => "number_gallery" );
 	
 	
 	/*======================================================================================
