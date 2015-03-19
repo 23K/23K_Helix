@@ -66,6 +66,8 @@ class Location_Widget extends WP_Widget {
 				}
 				echo $after_title;
 				
+				if ( $instance['extra-text'] ) echo '<p class="location-extra">' . $instance['extra-text'] . '</p>';
+				
 				if ( has_excerpt() ) {
 					echo '<p>' . str_replace('&raquo;', '', str_replace('Read More', '', get_the_excerpt())) . '</p>';
 				}
@@ -129,6 +131,7 @@ class Location_Widget extends WP_Widget {
 		$instance['loc-directions'] = $new_instance['loc-directions'];
 		$instance['loc-phone'] = $new_instance['loc-phone'];
 		$instance['loc-link'] = $new_instance['loc-link'];
+		$instance['extra-text'] = $new_instance['extra-text'];
 		return $instance;
 	}
 
@@ -181,6 +184,10 @@ class Location_Widget extends WP_Widget {
 		<p>
 			<input id="' . $this->get_field_id('loc-link') . '" name="' . $this->get_field_name('loc-link') . '" type="checkbox" value="1" '; checked( $instance['loc-link'], '1'); echo '/>
 			<label for="' . $this->get_field_id('loc-link') . '">Don\'t link location name to location page</label>
+		</p>
+		<p>
+			<label for="' . $this->get_field_id('extra-text') . '">Extra text:</label><br />
+			<textarea id="' . $this->get_field_id('extra-text') . '" name="' . $this->get_field_name('extra-text') . '">' . $instance['extra-text'] . '</textarea>
 		</p>';
 	}
 	
